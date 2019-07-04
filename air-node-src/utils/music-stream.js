@@ -52,7 +52,7 @@ function deleteOldPlaylistFiles(directory) {
 
 function createFFMPEGStream(channel_id, playlist) {
     // run ffmpeg command to create a stream
-    exec(`./bin/ffmpeg-stream.sh  ${playlist} ${channel_id}`, {maxBuffer: 500 * 1024}, (error, stdout, stderr) => {
+    exec(`./bin/ffmpeg-stream.sh  ${playlist} ${channel_id}`, {maxBuffer: 300 * 1024}, (error, stdout, stderr) => {
         if (error) {
             console.error(`./bin/ffmpeg-stream.sh: ${error}`);
             return;
