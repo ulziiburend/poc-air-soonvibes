@@ -22,7 +22,7 @@ function makePlaylist(channel_id, songs) {
 }
 
 function createSongTimer(channel_id, index) {
-    const song = channels[channel_id][index]
+    const song = channels[channel_id][index];
     currentChannelSongs[channel_id] = song;
     //adding server delay because streaming has delay
     schedule.scheduleJob(Date.now() + (song.duration * 1000)+SERVER_DELAY, function () {
@@ -36,9 +36,9 @@ function createSongTimer(channel_id, index) {
 
 function getNextSongIndex(channel_id, index) {
     if (index > channels[channel_id].length) {
-        return 0
+        return 0;
     } else
-        return index + 1
+        return index + 1;
 }
 
 function deleteOldPlaylistFiles(directory) {
@@ -66,7 +66,7 @@ function createFFMPEGStream(channel_id, playlist) {
 function createStreamChannels(channels) {
     for (const channel_id in channels) {
         const playlistPath = makePlaylist(channel_id, channels[channel_id]);
-        createFFMPEGStream(channel_id, playlistPath)
+        createFFMPEGStream(channel_id, playlistPath);
     }
 }
 
@@ -75,7 +75,7 @@ module.exports.startStream = function () {
     deleteOldPlaylistFiles(CHANNELS_PLAYLIST_DIR).then(function (result) {
         console.log('deleteOldPlaylistFiles ->promise success: true');
         //for each channel we need separate live streams
-        createStreamChannels(channels)
+        createStreamChannels(channels);
     }, function (err) {
         console.log('deleteOldPlaylistFiles -> promise rejected: ' + err);
     });
@@ -87,5 +87,5 @@ module.exports.getStreamChannel = function (channel_id) {
         url: FLV_URL + channel_id + FLV_FILE_EXT,
         song: currentChannelSongs[channel_id]
     };
-    return data
+    return data;
 };

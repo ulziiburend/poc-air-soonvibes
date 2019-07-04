@@ -16,7 +16,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use('/', indexRouter);
 
 musicStream.startStream();
-channelSocket.handler(app.io)
-chatSocket.handler(app.io)
+channelSocket.handler(app.io);
+chatSocket.handler(app.io);
 
 module.exports = app;

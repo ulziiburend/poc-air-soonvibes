@@ -11,4 +11,4 @@ module.exports = {
     FLV_URL,
     FLV_FILE_EXT,
     SERVER_DELAY,
-}
+};

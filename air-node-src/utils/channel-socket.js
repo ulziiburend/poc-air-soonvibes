@@ -16,6 +16,7 @@ function decreaseCount(channel_id) {
 
 module.exports.handler = function (io) {
     // handle events for channels namespaces
+    console.log("socket yes");
     mIO = io
     io.of(/^\/channel-\d+$/).on('connect', (channelSocket) => {
         console.log('Client has connected to channel');
@@ -46,4 +47,4 @@ module.exports.handler = function (io) {
 module.exports.emitSongChannel = function (channel_id, song) {
     if (mIO)
         mIO.of('channel-' + channel_id).emit('song-data', song);
-}
+};
