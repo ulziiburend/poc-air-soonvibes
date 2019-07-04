@@ -110,7 +110,7 @@ class Chat extends React.PureComponent {
                 <Card className={classes.chat}>
                     <CardContent className={classes.chatMessages}>
                         <Typography className={classes.title} color="textSecondary" gutterBottom>
-                            Feel free to chat  &#128519;
+                            Feel free to chat  <span role="img">&#128519;</span>
                         </Typography>
                         <Divider className={classes.vDivider}/>
                         {messages.map((message ,index)=> {

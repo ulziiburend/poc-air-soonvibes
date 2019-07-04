@@ -18,7 +18,7 @@ const styles = theme => ({
 
 })
 
-let flvPlayer = null
+
 
 class SongDetail extends React.PureComponent {
 
